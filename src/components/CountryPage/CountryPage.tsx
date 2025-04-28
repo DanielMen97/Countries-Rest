@@ -1,31 +1,15 @@
 import data from "../../../data.json";
 
 const CountryPage = () => {
-  const {
-    name,
-    flag,
-    population,
-    nativeName,
-    region,
-    subregion,
-    capital,
-    topLevelDomain,
-    currencies,
-    languages,
-    borders,
-  } = data[0];
+  
 
-  const isCapital = capital ? capital : "N/A";
-
-  const getBordersName = () => {
-    if (borders === undefined) return ["N/A"];
-    return borders.map((border) => {
-      const country = data.filter((country) => country.alpha3Code === border);
-      return country[0].name;
-    });
-  };
-
-  const bordersName = getBordersName();
+  // const getBordersName = () => {
+  //   if (borders === undefined) return ["N/A"];
+  //   return borders.map((border) => {
+  //     const country = data.filter((country) => country.alpha3Code === border);
+  //     return country[0].name;
+  //   });
+  // };
 
   return (
     <>

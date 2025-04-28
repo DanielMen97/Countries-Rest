@@ -2,11 +2,13 @@ import styles from "./styles.module.scss";
 import "../../index.css";
 import CustomSelect from "../CustomSelect/CustomSelect";
 import Country from "../Country/Country";
-import useCountries from "./useCountries";
+import { useCustomContext } from "../../context/useContext";
 
 const Countries = () => {
 
-  const { filterCountries, handleInputChange, handleSelectChange } = useCountries()
+  const { filterCountries, handleInputChange, handleSelectChange } = useCustomContext()
+
+  console.log(filterCountries)
   
   return (
     <main className={styles.countries}>
@@ -30,7 +32,7 @@ const Countries = () => {
           return (
             <Country
               key={key}
-              flags={flags}
+              flags={flags.png}
               name={name}
               population={population}
               region={region}
