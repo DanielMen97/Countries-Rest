@@ -1,0 +1,22 @@
+@use "./theme.scss";
+
+.header{
+  width: 100%;
+  padding: 20px 50px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  background-color: var(--color-elements);
+
+  .header__title {
+    font-weight: 800;
+    color: var(--color-text);
+  }
+
+  .header__darkmode {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    gap: 10px;
+    text-align: center;
+    color: var(--color-text);
+  }
+}
