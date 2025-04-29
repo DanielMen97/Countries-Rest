@@ -1,42 +1,33 @@
 import styles from "./styles.module.scss";
 import "../../index.css";
 import CustomSelect from "../CustomSelect/CustomSelect";
-import Country from "../Country/Country";
+import Country from "../CountryCard/Country";
 import { useCustomContext } from "../../context/useContext";
+import { CustomInput } from "../CustomInput/CustomInput";
 
 const Countries = () => {
 
-  const { filterCountries, handleInputChange, handleSelectChange } = useCustomContext()
-
-  console.log(filterCountries)
+  const { filterCountries } = useCustomContext()
   
   return (
     <main className={styles.countries}>
       <nav className={`${styles.countries__navbar} center-between`}>
-        <div className={`${styles.navbar__inputGroup} center`}>
-          <i
-            className={`${styles.inputGroup__icon} fa-solid fa-magnifying-glass`}
-          />
-          <input
-            className={`${styles.inputGroup__input}`}
-            type="text"
-            placeholder="Search for a country..."
-            onChange={handleInputChange}
-          />
-        </div>
-        <CustomSelect handleSelectChange={handleSelectChange} />
+        <CustomInput />
+        <CustomSelect />
       </nav>
       <section className={styles.countries__list}>
-        {filterCountries.map((country, key) => {
-          const { name, flags, population, region, capital } = country;
+        {filterCountries.map((country) => {
+          const { name, flags, population, region, capital, cioc } = country;
+          const hasCapital = capital ? capital[0] : "N/A"
           return (
             <Country
-              key={key}
+              key={cioc}
+              code={cioc}
               flags={flags.png}
-              name={name}
+              name={name.common}
               population={population}
               region={region}
-              capital={capital}
+              capital={hasCapital}
             />
           );
         })}

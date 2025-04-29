@@ -4,3 +4,10 @@ export const ContextGlobalDefault = {
   filterCountries: [],
 };
 
+export const regions = [
+  "Africa",
+  "Americas",
+  "Asia",
+  "Europe",
+  "Oceania",
+] as const;

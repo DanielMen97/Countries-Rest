@@ -1,12 +1,14 @@
 import styles from "./App.module.scss";
 import Countries from "./components/Countries/Countries";
 import CountryPage from "./components/CountryPage/CountryPage";
-import { ContextProvider } from "./context/useContext";
+import { useCustomContext } from "./context/useContext";
 import "./index.css";
 
 const App = () => {
+  const { country } = useCustomContext();
+
   return (
-    <ContextProvider>
+    <>
       <header className={`${styles.header} center-between`}>
         <h2 className={styles.header__title}>Where in the World?</h2>
         <div className={styles.header__darkmode}>
@@ -14,9 +16,9 @@ const App = () => {
           <span className={styles.darkmode__span}>Dark Mode</span>
         </div>
       </header>
-      <Countries />
-      {/* <CountryPage /> */}
-    </ContextProvider>
+      {!country && <Countries />}
+      {country && <CountryPage country={country}/>}
+    </>
   );
 };
 

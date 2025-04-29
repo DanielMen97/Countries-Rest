@@ -1,32 +1,28 @@
-import data from "../../../data.json";
+import { CountryOriginI } from "../../types";
+import styles from './styles.module.scss'
 
-const CountryPage = () => {
+const CountryPage = ({country}:{country:CountryOriginI}) => {
   
+const {flags, population, tld, name, region, subregion, capital, currencies, languages, borders } = country
 
-  // const getBordersName = () => {
-  //   if (borders === undefined) return ["N/A"];
-  //   return borders.map((border) => {
-  //     const country = data.filter((country) => country.alpha3Code === border);
-  //     return country[0].name;
-  //   });
-  // };
+console.log(country)
 
   return (
     <>
-      <nav>
-        <button>
-          <i className="fa-solid fa-arrow-left-long" /> Back
+      <nav className={styles.country__navbar}>
+        <button className={styles.navbar__button}>
+          <i className={`${styles.button__icon} fa-solid fa-arrow-left-long`} /> Back
         </button>
       </nav>
-      <article>
-        <img src={flag} alt={name} />
-        <aside>
-          <h1>{name}</h1>
-          <section>
+      <article className={styles.country__article}>
+        <img className={styles.article__flag} src={flags.svg} alt={flags.alt} />
+        <aside className={styles.article__info}>
+          <h1 className={styles.info__name}>{name.common}</h1>
+          <section className={styles.info__descriptions}>
             <div>
               <p>
                 <strong>Native Name: </strong>
-                {nativeName}
+                {/* {name.nativeName} */}
               </p>
               <p>
                 <strong>Population: </strong>
@@ -42,15 +38,15 @@ const CountryPage = () => {
               </p>
               <p>
                 <strong>Capital: </strong>
-                {isCapital}
+                {capital ? capital[0] : "N/A"}
               </p>
             </div>
             <div>
               <p>
                 <strong>Top Level Domain: </strong>
-                {topLevelDomain[0]}
+                {tld[0]}
               </p>
-              <div>
+              {/* <div>
                 <strong>Currencies: </strong>
                 {!currencies ? (
                   <p>N/A</p>
@@ -59,12 +55,12 @@ const CountryPage = () => {
                     <p key={current.code}>{current.name}</p>
                   ))
                 )}
-              </div>
+              </div> */}
               <div>
                 <strong>Languages: </strong>
-                {languages.map((language) => (
+                {/* {languages.map((language) => (
                   <p key={language.iso639_2}>{language.name}</p>
-                ))}
+                ))} */}
               </div>
             </div>
           </section>
@@ -72,9 +68,9 @@ const CountryPage = () => {
             <p>
               <strong>Border Countries: </strong>
             </p>
-            {bordersName.map((border) => (
+            {/* {borders.map((border) => (
               <span key={border}>{border}</span>
-            ))}
+            ))} */}
           </section>
         </aside>
       </article>

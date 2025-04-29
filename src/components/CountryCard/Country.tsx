@@ -1,10 +1,14 @@
 import styles from "./styles.module.scss";
 import '../../index.css'
 import { countryI } from "../../types";
+import { useCustomContext } from "../../context/useContext";
 
-const Country: React.FC<countryI> = ({flags,name,population,region,capital}) => {
+const Country: React.FC<countryI> = ({flags,name,population,region,capital,code}) => {
+
+  const { handleClick } = useCustomContext()
+
   return (
-    <article className={styles.list__countryCard}>
+    <article className={styles.list__countryCard} onClick={() => handleClick(code)}>
       <img
         className={styles.countryCard__flat}
         src={flags}

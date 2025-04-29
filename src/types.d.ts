@@ -16,6 +16,7 @@ interface NativeI {
 interface FlagsI {
   png: string; // URL to the PNG image of the flag
   svg: string; // URL to the SVG image of the flag
+  alt: string;
 }
 
 interface CurrenciesI {
@@ -42,6 +43,7 @@ export interface countryI {
   population: number; // Population of the country
   region: string; // Region of the country
   capital: string | undefined; // Capital city of the country
+  code: string
 }
 
 export interface CountryOriginI {
@@ -76,5 +78,8 @@ export interface CountryDetailsI {
 export interface ContextGlobalI {
   handleSelectChange : (event: ChangeEvent<HTMLSelectElement>) => void,
   handleInputChange : (event: ChangeEvent<HTMLInputElement>) => void,
-  filterCountries : CountryDetailsI[]
+  filterCountries : CountryOriginI[],
+  handleClick : (string) => void,
+  country: CountryOriginI | undefined
 }
+
