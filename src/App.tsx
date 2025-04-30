@@ -6,8 +6,6 @@ import "./index.css";
 
 const App = () => {
   const { country } = useCustomContext();
-
-  console.log(country)
   return (
     <>
       <header className={`${styles.header} center-between`}>

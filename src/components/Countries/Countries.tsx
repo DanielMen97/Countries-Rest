@@ -1,7 +1,7 @@
 import styles from "./styles.module.scss";
 import "../../index.css";
 import CustomSelect from "../CustomSelect/CustomSelect";
-import Country from "../CountryCard/Country";
+import CountryCard from "../CountryCard/CountryCard";
 import { useCustomContext } from "../../hooks/useContext";
 import { CustomInput } from "../CustomInput/CustomInput";
 
@@ -20,7 +20,7 @@ const Countries = () => {
           const { name, flags, population, region, capital, cioc } = country;
           const hasCapital = capital ? capital[0] : "N/A"
           return (
-            <Country
+            <CountryCard
               key={cioc}
               code={cioc}
               flags={flags.png}

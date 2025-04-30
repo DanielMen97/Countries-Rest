@@ -3,7 +3,7 @@ import '../../index.css'
 import { countryI } from "../../types";
 import { useCustomContext } from "../../hooks/useContext";
 
-const Country: React.FC<countryI> = ({flags,name,population,region,capital,code}) => {
+const CountryCard: React.FC<countryI> = ({flags,name,population,region,capital,code}) => {
 
   const { handleClick } = useCustomContext()
 
@@ -30,4 +30,4 @@ const Country: React.FC<countryI> = ({flags,name,population,region,capital,code}
   );
 };
 
-export default Country;
+export default CountryCard;
