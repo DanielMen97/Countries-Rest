@@ -11,3 +11,17 @@ export const regions = [
   "Europe",
   "Oceania",
 ] as const;
+
+export const countryDefault = {
+  flags: {svg: '', png: '', alt:''},
+  population: 0,
+  tld: [],
+  name: {common:'',official:'', nativeName:{}},
+  region: '',
+  subregion: '',
+  capital: undefined,
+  currencies: {},
+  languages: {},
+  borders: undefined,
+  cioc: ''
+}

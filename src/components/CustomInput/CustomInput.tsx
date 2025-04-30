@@ -1,5 +1,5 @@
 import styles from "./styles.module.scss";
-import { useCustomContext } from "../../context/useContext";
+import { useCustomContext } from "../../hooks/useContext";
 
 export const CustomInput = () => {
   const { handleInputChange } = useCustomContext();

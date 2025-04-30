@@ -1,7 +1,7 @@
 import styles from "./styles.module.scss";
 import '../../index.css'
 import { countryI } from "../../types";
-import { useCustomContext } from "../../context/useContext";
+import { useCustomContext } from "../../hooks/useContext";
 
 const Country: React.FC<countryI> = ({flags,name,population,region,capital,code}) => {
 

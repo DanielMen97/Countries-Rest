@@ -2,18 +2,16 @@ import { ReactNode, createContext, useContext } from "react";
 import { getAllCountries } from "../services/Services";
 import { ChangeEvent, useEffect, useState } from "react";
 import { ContextGlobalI, CountryOriginI } from "../types";
+import { countryDefault } from "../const/const";
 
 type CountriesType = CountryOriginI[];
 
 // Create a context with a default value
-const context = createContext<ContextGlobalI>({} as ContextGlobalI);
-
-// Custom hook to use the context
-export const useCustomContext = () => useContext(context);
+export const context = createContext<ContextGlobalI>({} as ContextGlobalI);
 
 export const ContextProvider = ({ children }: { children: ReactNode }) => {
   const [countries, setCountries] = useState<CountriesType>([]);
-  const [country, setCountry] = useState<CountryOriginI | undefined> (undefined)
+  const [country, setCountry] = useState<CountryOriginI> ({...countryDefault})
   const [filters, setFilters] = useState({
     region: "all",
     search: "",

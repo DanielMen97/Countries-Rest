@@ -2,7 +2,7 @@ import styles from "./styles.module.scss";
 import "../../index.css";
 import CustomSelect from "../CustomSelect/CustomSelect";
 import Country from "../CountryCard/Country";
-import { useCustomContext } from "../../context/useContext";
+import { useCustomContext } from "../../hooks/useContext";
 import { CustomInput } from "../CustomInput/CustomInput";
 
 const Countries = () => {

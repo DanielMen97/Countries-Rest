@@ -80,6 +80,6 @@ export interface ContextGlobalI {
   handleInputChange : (event: ChangeEvent<HTMLInputElement>) => void,
   filterCountries : CountryOriginI[],
   handleClick : (string) => void,
-  country: CountryOriginI | undefined
+  country: CountryOriginI
 }
 
