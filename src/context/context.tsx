@@ -1,4 +1,4 @@
-import { ReactNode, createContext, useContext } from "react";
+import { ReactNode, createContext } from "react";
 import { getAllCountries } from "../services/Services";
 import { ChangeEvent, useEffect, useState } from "react";
 import { ContextGlobalI, CountryOriginI } from "../types";
@@ -11,7 +11,7 @@ export const context = createContext<ContextGlobalI>({} as ContextGlobalI);
 
 export const ContextProvider = ({ children }: { children: ReactNode }) => {
   const [countries, setCountries] = useState<CountriesType>([]);
-  const [country, setCountry] = useState<CountryOriginI> ({...countryDefault})
+  const [country, setCountry] = useState<CountryOriginI>({ ...countryDefault });
   const [filters, setFilters] = useState({
     region: "all",
     search: "",
@@ -37,15 +37,25 @@ export const ContextProvider = ({ children }: { children: ReactNode }) => {
   const handleSelectChange = (event: ChangeEvent<HTMLSelectElement>) =>
     setFilters({ ...filters, region: event.target.value });
 
-  const handleClick = (codeCountry: string) => 
-    setCountry(filterCountries.filter(country => country.cioc === codeCountry)[0])
+  const handleClick = (nameCountry: string) => {
+    const countrySelect = countries.find(
+      (country) => country.name.common === nameCountry
+    );
+    if (countrySelect) {
+      setCountry(countrySelect);
+    }
+  };
+
+  const handleBack = () => setCountry({ ...countryDefault });
 
   const value = {
     handleSelectChange,
     handleInputChange,
     filterCountries,
     handleClick,
-    country
+    country,
+    countries,
+    handleBack,
   };
   return <context.Provider value={value}>{children}</context.Provider>;
 };

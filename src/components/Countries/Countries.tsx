@@ -6,9 +6,8 @@ import { useCustomContext } from "../../hooks/useContext";
 import { CustomInput } from "../CustomInput/CustomInput";
 
 const Countries = () => {
+  const { filterCountries } = useCustomContext();
 
-  const { filterCountries } = useCustomContext()
-  
   return (
     <main className={styles.countries}>
       <nav className={`${styles.countries__navbar} center-between`}>
@@ -17,12 +16,11 @@ const Countries = () => {
       </nav>
       <section className={styles.countries__list}>
         {filterCountries.map((country) => {
-          const { name, flags, population, region, capital, cioc } = country;
-          const hasCapital = capital ? capital[0] : "N/A"
+          const { name, flags, population, region, capital } = country;
+          const hasCapital = capital ? capital[0] : "N/A";
           return (
             <CountryCard
-              key={cioc}
-              code={cioc}
+              key={name.common}
               flags={flags.png}
               name={name.common}
               population={population}

@@ -16,16 +16,17 @@ export const useCustomContext = () => {
     currencies,
     languages,
     borders,
-    cioc
+    cioc,
   } = data.country;
 
-  function getListName(borders: string[]) {
-    return borders
+  function getListName(borders: string[] | undefined) {
+    if (borders === undefined) return ["N/A"];
+    const bordersName = borders
       .map((border) => {
-        return data.filterCountries.find((country) => country.cioc === border)
-          ?.name.common;
+        return data.countries.find((country) => country.cioc === border)?.name.common;
       })
       .filter((border) => border !== undefined);
+    return bordersName.length > 0 ? bordersName : ["N/A"];
   }
   const hasCapital = capital ? capital[0] : "N/A";
   const populationString = population.toLocaleString();
@@ -35,7 +36,7 @@ export const useCustomContext = () => {
     (currency) => currency.name
   );
   const listLanguages = Object.values(languages);
-  const hasBorders = borders ? getListName(borders) : ["N/A"];
+  const hasBorders = getListName(borders);
   const formatInfo = {
     "Native Name": nativeName,
     Population: populationString,

@@ -3,12 +3,12 @@ import '../../index.css'
 import { countryI } from "../../types";
 import { useCustomContext } from "../../hooks/useContext";
 
-const CountryCard: React.FC<countryI> = ({flags,name,population,region,capital,code}) => {
+const CountryCard: React.FC<countryI> = ({flags,name,population,region,capital}) => {
 
   const { handleClick } = useCustomContext()
 
   return (
-    <article className={styles.list__countryCard} onClick={() => handleClick(code)}>
+    <article className={styles.list__countryCard} onClick={() => handleClick(name)}>
       <img
         className={styles.countryCard__flat}
         src={flags}

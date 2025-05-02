@@ -1,4 +1,4 @@
-@use "./theme.scss";
+@use "../../theme.scss";
 
 .header{
   width: 100%;
@@ -12,11 +12,22 @@
   }
 
   .header__darkmode {
-    display: flex;
-    align-items: center;
     cursor: pointer;
     gap: 10px;
-    text-align: center;
     color: var(--color-text);
+  }
+}
+
+@media (min-width: 375px) {
+  .header{
+    padding: 20px;
+
+    .header__title{
+      font-size: 15px;
+    }
+
+    .header__darkmode{
+      font-size: 13px;
+    }
   }
 }

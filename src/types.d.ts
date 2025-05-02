@@ -43,7 +43,6 @@ export interface countryI {
   population: number; // Population of the country
   region: string; // Region of the country
   capital: string | undefined; // Capital city of the country
-  code: string
 }
 
 export interface CountryOriginI {
@@ -80,6 +79,8 @@ export interface ContextGlobalI {
   handleInputChange : (event: ChangeEvent<HTMLInputElement>) => void,
   filterCountries : CountryOriginI[],
   handleClick : (string) => void,
-  country: CountryOriginI
+  country: CountryOriginI,
+  countries: CountryOriginI[],
+  handleBack: () => void
 }
 

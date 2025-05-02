@@ -58,3 +58,19 @@
     border-radius: 5px;
   }
 }
+
+@media (min-width: 375px) {
+  .navbar__selectGroup {
+    width: 168px;
+  
+    .selectGroup__select {
+      font-size: 12px;
+    }
+  
+    .selectGroup__icon {
+      right: 13px;
+      font-size: 9px;
+    }
+  }
+  
+}

@@ -3,14 +3,14 @@ import styles from "./styles.module.scss";
 import "../../index.css";
 
 const CountryPage = () => {
-  const { country } = useCustomContext();
+  const { country, handleBack } = useCustomContext();
 
   const { name, flags, descriptions, hasBorders } = country;
 
   return (
     <>
       <nav className={styles.country__navbar}>
-        <button className={`${styles.navbar__button}`}>
+        <button className={`${styles.navbar__button}`} onClick={handleBack}>
           <i className={`${styles.button__icon} fa-solid fa-arrow-left-long`} />{" "}
           Back
         </button>
@@ -46,12 +46,9 @@ const CountryPage = () => {
             </p>
             <div className={styles.borders__container}>
               {hasBorders.map((border) => (
-                <div>
                 <span className={styles.container__item} key={border}>
                   {border}
                 </span>
-
-                </div>
               ))}
             </div>
           </section>
