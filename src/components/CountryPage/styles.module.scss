@@ -82,7 +82,7 @@
   }
 }
 
-@media (min-width: 375px) {
+@media (max-width: 375px) {
   .country__navbar {
     height: 100px;
     padding: 0 25px;
